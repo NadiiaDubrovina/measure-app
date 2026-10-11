@@ -1,0 +1,14 @@
+services:
+  yadima:
+    container_name: yadima
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    restart: unless-stopped
